@@ -1,0 +1,31 @@
+<div class="content">
+		
+		<bugstat [data]="bugs"></bugstat>
+		
+		<section class="search">
+            <label for="">Search :</label>
+            <input type="text" name="" id="">
+        </section>
+		<section class="sort">
+			<label for="">Order By :</label>
+			<select >
+				<option value="">Name</option>
+				<option value="">Status</option>
+				<option value="">Created</option>
+			</select>
+			<label for="">Descending :</label>
+			<input type="checkbox" name="" id="">
+		</section>
+		
+		<bug-input (onAddBug)="addBug($event)"></bug-input>
+
+		<section class="list">
+			<ol>
+				<li *ngFor="let bug of bugs" >
+					<bug-item (toggleBugEvent)="onToggle($event)"  [data]="bug"> </bug-item>
+				</li>
+				
+			</ol>
+			<input type="button" value="Remove Closed">
+		</section>
+	</div>
